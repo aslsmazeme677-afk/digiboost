@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigiBoost Pakistan — Grow Your Business Digitally</title>
+<meta name="description" content="Pakistan ki #1 Digital Marketing Blog. Facebook Ads, SEO, Social Media aur Online Business Growth ke liye trusted platform.">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7faf7;
+    --white: #ffffff;
+    --surface: #eef5ee;
+    --surface2: #e2efe2;
+    --green: #22a84a;
+    --green-light: #4cbb6e;
+    --green-pale: #d4edda;
+    --green-dark: #166534;
+    --green-glow: rgba(34,168,74,0.15);
+    --text: #1a2e1a;
+    --muted: #5a7a5a;
+    --border: rgba(34,168,74,0.15);
+    --border2: rgba(34,168,74,0.1);
+    --shadow: 0 4px 24px rgba(34,168,74,0.1);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1rem 6%;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(20px);
+    border-bottom:2px solid var(--green-pale);
+    box-shadow:0 2px 20px rgba(34,168,74,0.08);
+  }
+  .logo {
+    font-family:'Merriweather',serif;
+    font-weight:900; font-size:1.4rem;
+    color:var(--text); letter-spacing:-.01em;
+  }
+  .logo span { color:var(--green); }
+  .nav-links { display:flex; gap:2rem; list-style:none; }
+  .nav-links a {
+    color:var(--muted); text-decoration:none;
+    font-size:.9rem; font-weight:700;
+    transition:color .2s; letter-spacing:.01em;
+  }
+  .nav-links a:hover { color:var(--green); }
+  .nav-cta {
+    display:flex; align-items:center; gap:.5rem;
+    background:var(--green); color:#fff;
+    padding:.55rem 1.4rem; border-radius:50px;
+    font-weight:800; font-size:.85rem;
+    text-decoration:none;
+    box-shadow:0 4px 15px var(--green-glow);
+    transition:all .2s;
+  }
+  .nav-cta:hover { background:var(--green-light); transform:translateY(-2px); box-shadow:0 8px 25px var(--green-glow); }
+
+  /* HERO */
+  .hero {
+    min-height:100vh; display:flex; align-items:center;
+    padding:8rem 6% 5rem; position:relative; overflow:hidden;
+    background:linear-gradient(160deg, #ffffff 0%, #f0f9f0 50%, #e8f5e8 100%);
+  }
+  .hero-circles {
+    position:absolute; inset:0; z-index:0; overflow:hidden;
+  }
+  .hero-circles::before {
+    content:''; position:absolute;
+    width:600px; height:600px; border-radius:50%;
+    background:radial-gradient(circle, rgba(34,168,74,.08) 0%, transparent 70%);
+    right:-100px; top:-100px;
+  }
+  .hero-circles::after {
+    content:''; position:absolute;
+    width:400px; height:400px; border-radius:50%;
+    background:radial-gradient(circle, rgba(34,168,74,.06) 0%, transparent 70%);
+    left:-50px; bottom:-50px;
+  }
+  .hero-dots {
+    position:absolute; inset:0; z-index:0;
+    background-image: radial-gradient(rgba(34,168,74,.12) 1.5px, transparent 1.5px);
+    background-size:32px 32px;
+  }
+  .hero-content { position:relative; z-index:1; max-width:680px; }
+
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:.6rem;
+    background:var(--green-pale); border:1.5px solid rgba(34,168,74,.3);
+    padding:.45rem 1.2rem; border-radius:50px;
+    font-size:.8rem; font-weight:800; color:var(--green-dark);
+    letter-spacing:.05em; text-transform:uppercase;
+    margin-bottom:2rem;
+    animation:fadeUp .7s ease both;
+  }
+  .hero-badge::before {
+    content:''; width:8px; height:8px; border-radius:50%;
+    background:var(--green); box-shadow:0 0 8px var(--green);
+    animation:blink 2s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.3)} }
+
+  .hero h1 {
+    font-family:'Merriweather',serif;
+    font-size:clamp(2.4rem,5vw,4rem);
+    font-weight:900; line-height:1.12;
+    letter-spacing:-.02em; margin-bottom:1.5rem;
+    color:var(--text);
+    animation:fadeUp .7s .1s ease both;
+  }
+  .hero h1 em {
+    font-style:normal; color:var(--green);
+    position:relative;
+  }
+  .hero h1 em::after {
+    content:''; position:absolute;
+    bottom:-4px; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, var(--green), var(--green-light));
+    border-radius:2px;
+  }
+  .hero p {
+    color:var(--muted); font-size:1.1rem; line-height:1.8;
+    max-width:520px; margin-bottom:2.5rem;
+    animation:fadeUp .7s .2s ease both;
+  }
+  .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp .7s .3s ease both; }
+  .btn-green {
+    display:flex; align-items:center; gap:.6rem;
+    background:var(--green); color:#fff;
+    padding:.9rem 2rem; border-radius:50px;
+    font-weight:800; font-size:.95rem; text-decoration:none;
+    box-shadow:0 8px 25px var(--green-glow);
+    transition:all .2s;
+  }
+  .btn-green:hover { background:var(--green-light); transform:translateY(-3px); box-shadow:0 14px 35px var(--green-glow); }
+  .btn-outline {
+    display:flex; align-items:center; gap:.6rem;
+    background:transparent; color:var(--text);
+    padding:.9rem 2rem; border-radius:50px;
+    border:2px solid var(--border);
+    font-weight:700; font-size:.95rem; text-decoration:none;
+    transition:all .2s;
+  }
+  .btn-outline:hover { border-color:var(--green); color:var(--green); background:var(--green-pale); }
+
+  .hero-stats {
+    display:flex; gap:3rem; margin-top:4rem;
+    padding-top:2rem; border-top:2px dashed var(--green-pale);
+    animation:fadeUp .7s .4s ease both;
+  }
+  .stat-num {
+    font-family:'Merriweather',serif;
+    font-size:2.2rem; font-weight:900; color:var(--green);
+  }
+  .stat-num span { font-size:1.5rem; }
+  .stat-label { color:var(--muted); font-size:.8rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; margin-top:.2rem; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+  /* SHARED */
+  .sec-label {
+    display:inline-flex; align-items:center; gap:.5rem;
+    color:var(--green); font-size:.75rem; font-weight:800;
+    letter-spacing:.12em; text-transform:uppercase; margin-bottom:.8rem;
+  }
+  .sec-label::before { content:'🌿'; font-size:.9rem; }
+  .sec-title {
+    font-family:'Merriweather',serif;
+    font-size:clamp(1.8rem,3vw,2.5rem);
+    font-weight:900; letter-spacing:-.02em;
+    color:var(--text); margin-bottom:.7rem;
+  }
+  .sec-sub { color:var(--muted); max-width:480px; font-size:1rem; line-height:1.75; }
+
+  /* SERVICES */
+  .services {
+    padding:5rem 6%;
+    background:var(--white);
+    border-top:2px solid var(--green-pale);
+    border-bottom:2px solid var(--green-pale);
+  }
+  .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem; margin-top:3rem; }
+  .svc-card {
+    background:var(--bg); border:2px solid var(--border2);
+    border-radius:16px; padding:2rem;
+    transition:all .3s; position:relative;
+  }
+  .svc-card:hover {
+    border-color:var(--green); transform:translateY(-6px);
+    box-shadow:0 20px 50px rgba(34,168,74,.12);
+    background:var(--white);
+  }
+  .svc-icon {
+    width:52px; height:52px; border-radius:14px;
+    background:var(--green-pale); border:2px solid rgba(34,168,74,.2);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem; margin-bottom:1.2rem;
+  }
+  .svc-card h3 { font-weight:800; font-size:1.05rem; margin-bottom:.5rem; color:var(--text); }
+  .svc-card p { color:var(--muted); font-size:.9rem; line-height:1.65; }
+
+  /* BLOG */
+  .blog-section { padding:5rem 6%; background:var(--bg); }
+  .blog-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.2rem; margin-top:3rem; }
+  .blog-card {
+    background:var(--white); border:2px solid var(--border2);
+    border-radius:16px; overflow:hidden;
+    text-decoration:none; color:inherit; display:block;
+    transition:all .3s;
+    box-shadow:0 2px 12px rgba(34,168,74,.06);
+  }
+  .blog-card:hover { border-color:var(--green); transform:translateY(-6px); box-shadow:0 20px 50px rgba(34,168,74,.12); }
+  .blog-thumb { height:160px; display:flex; align-items:center; justify-content:center; font-size:2.5rem; }
+  .blog-body { padding:1.4rem; }
+  .blog-cat {
+    display:inline-block; padding:.3rem .9rem;
+    border-radius:50px; font-size:.72rem; font-weight:800;
+    letter-spacing:.06em; text-transform:uppercase; margin-bottom:.7rem;
+    background:var(--green-pale); color:var(--green-dark);
+    border:1px solid rgba(34,168,74,.2);
+  }
+  .blog-card h3 { font-weight:800; font-size:1rem; line-height:1.4; margin-bottom:.5rem; color:var(--text); }
+  .blog-card p { color:var(--muted); font-size:.875rem; margin-bottom:.8rem; line-height:1.65; }
+  .blog-meta { display:flex; gap:1rem; color:var(--muted); font-size:.78rem; font-weight:600; }
+
+  /* TIPS */
+  .tips {
+    padding:5rem 6%;
+    background:var(--white);
+    border-top:2px solid var(--green-pale);
+    border-bottom:2px solid var(--green-pale);
+  }
+  .tips-list { margin-top:2.5rem; display:flex; flex-direction:column; gap:.8rem; }
+  .tip-row {
+    display:flex; align-items:flex-start; gap:1.2rem;
+    background:var(--bg); border:2px solid var(--border2);
+    border-radius:14px; padding:1.3rem 1.5rem; transition:all .3s;
+  }
+  .tip-row:hover { border-color:var(--green); background:var(--white); box-shadow:var(--shadow); }
+  .tip-n {
+    font-family:'Merriweather',serif; font-size:1.8rem; font-weight:900;
+    color:var(--green-pale); min-width:40px; line-height:1;
+    -webkit-text-stroke:2px var(--green);
+  }
+  .tip-row h4 { font-weight:800; font-size:.95rem; margin-bottom:.3rem; color:var(--text); }
+  .tip-row p { color:var(--muted); font-size:.875rem; line-height:1.65; }
+
+  /* CONTACT */
+  .contact-wrap {
+    padding:5rem 6%;
+    background:var(--bg);
+  }
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-top:3rem; }
+  @media(max-width:768px){ .contact-grid{grid-template-columns:1fr;} }
+
+  .contact-info h3 { font-family:'Merriweather',serif; font-size:1.3rem; font-weight:900; margin-bottom:1.5rem; color:var(--text); }
+  .citem {
+    display:flex; align-items:center; gap:1rem;
+    background:var(--white); border:2px solid var(--border2);
+    border-radius:12px; padding:1.1rem 1.4rem; margin-bottom:.8rem;
+    text-decoration:none; color:var(--text); transition:all .2s;
+    box-shadow:0 2px 8px rgba(34,168,74,.05);
+  }
+  .citem:hover { border-color:var(--green); transform:translateX(5px); box-shadow:var(--shadow); }
+  .citem-icon {
+    width:44px; height:44px; border-radius:10px;
+    background:var(--green-pale); border:1.5px solid rgba(34,168,74,.2);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; flex-shrink:0;
+  }
+  .citem strong { display:block; font-size:.9rem; font-weight:800; color:var(--text); }
+  .citem span { color:var(--muted); font-size:.825rem; font-weight:600; }
+
+  .contact-form h3 { font-family:'Merriweather',serif; font-size:1.3rem; font-weight:900; margin-bottom:1.5rem; color:var(--text); }
+  .fgroup { margin-bottom:1rem; }
+  .fgroup label { display:block; color:var(--muted); font-size:.78rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.4rem; }
+  .fgroup input, .fgroup textarea, .fgroup select {
+    width:100%; background:var(--white); border:2px solid var(--border2);
+    border-radius:10px; padding:.8rem 1rem; color:var(--text);
+    font-family:'Nunito',sans-serif; font-size:.95rem; outline:none;
+    transition:all .2s; font-weight:600;
+  }
+  .fgroup input:focus, .fgroup textarea:focus, .fgroup select:focus {
+    border-color:var(--green); box-shadow:0 0 0 4px rgba(34,168,74,.1);
+  }
+  .fgroup textarea { resize:vertical; min-height:110px; }
+  .fgroup select option { background:var(--white); }
+  .fsub {
+    width:100%; background:var(--green); color:#fff; border:none;
+    padding:.9rem; border-radius:50px;
+    font-family:'Nunito',sans-serif; font-weight:800; font-size:.95rem; cursor:pointer;
+    box-shadow:0 6px 20px var(--green-glow);
+    transition:all .2s;
+  }
+  .fsub:hover { background:var(--green-light); transform:translateY(-2px); box-shadow:0 10px 30px var(--green-glow); }
+  .form-ok { display:none; text-align:center; padding:2rem; background:var(--green-pale); border:2px solid rgba(34,168,74,.3); border-radius:12px; margin-top:1rem; }
+  .form-ok h4 { color:var(--green-dark); font-size:1.1rem; margin-bottom:.5rem; font-weight:900; }
+  .form-ok p { color:var(--muted); font-size:.875rem; }
+
+  /* CTA */
+  .cta-wrap {
+    text-align:center; padding:6rem 6%;
+    background:linear-gradient(135deg, #166534 0%, #22a84a 50%, #4cbb6e 100%);
+    position:relative; overflow:hidden;
+  }
+  .cta-wrap::before {
+    content:''; position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.08) 1.5px, transparent 1.5px);
+    background-size:28px 28px;
+  }
+  .cta-wrap > * { position:relative; z-index:1; }
+  .cta-wrap h2 { font-family:'Merriweather',serif; font-size:clamp(1.8rem,3.5vw,3rem); font-weight:900; color:#fff; margin-bottom:1rem; }
+  .cta-wrap p { color:rgba(255,255,255,.8); font-size:1.05rem; max-width:460px; margin:0 auto 2.5rem; }
+  .wa-big {
+    display:inline-flex; align-items:center; gap:.8rem;
+    background:#fff; color:var(--green-dark);
+    padding:1rem 2.5rem; border-radius:50px;
+    font-weight:900; font-size:1.05rem; text-decoration:none;
+    box-shadow:0 8px 30px rgba(0,0,0,.2);
+    transition:all .2s;
+  }
+  .wa-big:hover { transform:translateY(-3px); box-shadow:0 14px 40px rgba(0,0,0,.3); }
+  .contact-chips { display:flex; justify-content:center; gap:1rem; margin-top:1.5rem; flex-wrap:wrap; }
+  .chip { display:inline-flex; align-items:center; gap:.4rem; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); padding:.4rem 1rem; border-radius:50px; font-size:.825rem; color:#fff; font-weight:700; }
+
+  /* FOOTER */
+  footer {
+    background:var(--green-dark); padding:3rem 6%;
+  }
+  .footer-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; }
+  .footer-logo { font-family:'Merriweather',serif; font-weight:900; font-size:1.4rem; color:#fff; }
+  .footer-logo span { color:#86efac; }
+  .footer-links { display:flex; gap:2rem; flex-wrap:wrap; }
+  .footer-links a { color:rgba(255,255,255,.6); text-decoration:none; font-size:.875rem; font-weight:700; transition:color .2s; }
+  .footer-links a:hover { color:#86efac; }
+  .footer-copy { color:rgba(255,255,255,.4); font-size:.8rem; width:100%; text-align:center; margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.1); }
+
+  /* FLOAT WA */
+  .wa-float {
+    position:fixed; bottom:2rem; right:2rem; z-index:200;
+    width:56px; height:56px; border-radius:50%;
+    background:linear-gradient(135deg,#25d366,#128c7e);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 25px rgba(37,211,102,.4); text-decoration:none;
+    animation:floatY 3s ease-in-out infinite;
+  }
+  .wa-float:hover { transform:scale(1.1) !important; }
+  @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+  @media(max-width:768px){
+    .nav-links{display:none;}
+    .hero-stats{gap:1.5rem; flex-wrap:wrap;}
+    .footer-inner{flex-direction:column; text-align:center;}
+    .footer-links{justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">DigiBoost <span>Pakistan</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#tips">Tips</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/923061698677" target="_blank" class="nav-cta">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp Us
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-circles"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🇵🇰 Pakistan's Digital Growth Platform</div>
+    <h1>Grow Your Business <em>Digitally</em> — Fast & Smart</h1>
+    <p>Expert strategies in Facebook Ads, SEO, Social Media & Online Marketing. Trusted by 500+ Pakistani businesses to grow online.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-green">📩 Free Consultation</a>
+      <a href="https://wa.me/923061698677" target="_blank" class="btn-outline">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Now
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">500<span>+</span></div><div class="stat-label">Businesses Helped</div></div>
+      <div><div class="stat-num">10<span>K+</span></div><div class="stat-label">Monthly Readers</div></div>
+      <div><div class="stat-num">98<span>%</span></div><div class="stat-label">Satisfaction</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="sec-label">What We Offer</div>
+  <div class="sec-title">Our Digital Services</div>
+  <p class="sec-sub">Everything you need to build, grow, and scale your brand online in Pakistan.</p>
+  <div class="services-grid">
+    <div class="svc-card"><div class="svc-icon">📱</div><h3>Social Media Marketing</h3><p>Facebook, Instagram, TikTok — build an engaged audience that converts into real paying customers.</p></div>
+    <div class="svc-card"><div class="svc-icon">🔍</div><h3>SEO & Search Rankings</h3><p>Get found on Google. On-page, off-page & technical SEO that pushes you to page 1.</p></div>
+    <div class="svc-card"><div class="svc-icon">📢</div><h3>Paid Advertising (PPC)</h3><p>Google Ads & Facebook campaigns optimized for maximum ROI on every rupee spent.</p></div>
+    <div class="svc-card"><div class="svc-icon">✍️</div><h3>Content Marketing</h3><p>Blogs, reels, videos & emails that educate, engage and convert your audience.</p></div>
+    <div class="svc-card"><div class="svc-icon">🎨</div><h3>Branding & Identity</h3><p>Logo, brand voice & positioning — stand out from every competitor in your market.</p></div>
+    <div class="svc-card"><div class="svc-icon">🛒</div><h3>E-Commerce Growth</h3><p>Daraz, Shopify, WooCommerce — boost traffic & increase sales fast.</p></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-section" id="blog">
+  <div class="sec-label">Latest Posts</div>
+  <div class="sec-title">Digital Marketing Blog</div>
+  <p class="sec-sub">Fresh SEO-optimized articles updated every week.</p>
+  <div class="blog-grid">
+    <a href="#contact" class="blog-card">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#dcfce7,#86efac)">🚀</div>
+      <div class="blog-body"><span class="blog-cat">SEO</span><h3>How to Rank #1 on Google in Pakistan (2025)</h3><p>Step-by-step guide to dominate local search results.</p><div class="blog-meta"><span>📅 May 2025</span><span>⏱ 8 min</span></div></div>
+    </a>
+    <a href="#contact" class="blog-card">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7)">📱</div>
+      <div class="blog-body"><span class="blog-cat">Facebook Ads</span><h3>Facebook vs TikTok Ads: Which Wins for Pakistani Businesses?</h3><p>Data-driven comparison to invest your budget wisely.</p><div class="blog-meta"><span>📅 Apr 2025</span><span>⏱ 6 min</span></div></div>
+    </a>
+    <a href="#contact" class="blog-card">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#ecfdf5,#a7f3d0)">💰</div>
+      <div class="blog-body"><span class="blog-cat">E-Commerce</span><h3>10 Proven Ways to Double Your Daraz Sales</h3><p>Listing tricks & pricing strategies to skyrocket revenue.</p><div class="blog-meta"><span>📅 Apr 2025</span><span>⏱ 10 min</span></div></div>
+    </a>
+    <a href="#contact" class="blog-card">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#f0fdf4,#bbf7d0)">🎯</div>
+      <div class="blog-body"><span class="blog-cat">Strategy</span><h3>Building a Brand From Scratch With PKR 10,000</h3><p>Real strategies for small businesses to grow online.</p><div class="blog-meta"><span>📅 Mar 2025</span><span>⏱ 7 min</span></div></div>
+    </a>
+    <a href="#contact" class="blog-card">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#dcfce7,#86efac)">✉️</div>
+      <div class="blog-body"><span class="blog-cat">Email Marketing</span><h3>Email Marketing Secrets That Generate Sales 24/7</h3><p>Automated sequences that turn subscribers into buyers.</p><div class="blog-meta"><span>📅 Mar 2025</span><span>⏱ 5 min</span></div></div>
+    </a>
+    <a href="#contact" class="blog-card">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7)">📊</div>
+      <div class="blog-body"><span class="blog-cat">Analytics</span><h3>Google Analytics 4: A Beginner's Complete Guide</h3><p>Make smarter marketing decisions with real data.</p><div class="blog-meta"><span>📅 Feb 2025</span><span>⏱ 9 min</span></div></div>
+    </a>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips" id="tips">
+  <div class="sec-label">Quick Wins</div>
+  <div class="sec-title">Top 5 Marketing Tips</div>
+  <p class="sec-sub">Implement these today and see results within weeks.</p>
+  <div class="tips-list">
+    <div class="tip-row"><div class="tip-n">01</div><div><h4>Optimize Your Google Business Profile</h4><p>A complete listing brings free, high-intent local customers every day — without spending a rupee on ads.</p></div></div>
+    <div class="tip-row"><div class="tip-n">02</div><div><h4>Post Consistently on 1 Social Platform First</h4><p>Master one channel before spreading thin. Post quality content 3–5x per week.</p></div></div>
+    <div class="tip-row"><div class="tip-n">03</div><div><h4>Use WhatsApp for Customer Retention</h4><p>WhatsApp has 98% open rates. Build a broadcast list and send offers to keep customers coming back.</p></div></div>
+    <div class="tip-row"><div class="tip-n">04</div><div><h4>Create Short Video Content</h4><p>Reels and TikToks under 60 seconds get 3x the reach of static posts.</p></div></div>
+    <div class="tip-row"><div class="tip-n">05</div><div><h4>Collect & Display Customer Reviews</h4><p>One good Google review can close 10 new sales — ask every happy customer!</p></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-wrap" id="contact">
+  <div class="sec-label">Get In Touch</div>
+  <div class="sec-title">Contact Us</div>
+  <p class="sec-sub">Reach out via email, WhatsApp, or fill the form — we reply within 1 hour!</p>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>📬 Direct Contact</h3>
+      <a href="mailto:aslsmazeme677@gmail.com" class="citem">
+        <div class="citem-icon">✉️</div>
+        <div><strong>Email Us</strong><span>aslsmazeme677@gmail.com</span></div>
+      </a>
+      <a href="https://wa.me/923061698677" target="_blank" class="citem">
+        <div class="citem-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+        <div><strong>WhatsApp</strong><span>+92 306 169 8677</span></div>
+      </a>
+      <div class="citem" style="cursor:default">
+        <div class="citem-icon">🕐</div>
+        <div><strong>Working Hours</strong><span>Mon–Sat: 9:00 AM – 10:00 PM</span></div>
+      </div>
+      <div class="citem" style="cursor:default">
+        <div class="citem-icon">📍</div>
+        <div><strong>Location</strong><span>Pakistan 🇵🇰 — Serving Nationwide</span></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>💬 Send a Message</h3>
+      <div id="cForm">
+        <div class="fgroup"><label>Your Name *</label><input type="text" id="fn" placeholder="Aap ka naam"></div>
+        <div class="fgroup"><label>Email *</label><input type="email" id="fe" placeholder="yourname@gmail.com"></div>
+        <div class="fgroup"><label>Phone / WhatsApp</label><input type="text" id="fp" placeholder="+92 300 0000000"></div>
+        <div class="fgroup"><label>Service</label>
+          <select id="fs">
+            <option value="">-- Select Service --</option>
+            <option>Social Media Marketing</option>
+            <option>SEO & Search Rankings</option>
+            <option>Facebook / Google Ads</option>
+            <option>Content Marketing</option>
+            <option>Branding & Identity</option>
+            <option>E-Commerce Growth</option>
+            <option>Website Design</option>
+          </select>
+        </div>
+        <div class="fgroup"><label>Message *</label><textarea id="fm" placeholder="Apna business describe karein..."></textarea></div>
+        <button class="fsub" onclick="sendMsg()">🌿 Send Message</button>
+      </div>
+      <div class="form-ok" id="fOk">
+        <h4>✅ Message Sent!</h4>
+        <p>Shukriya! Hum <strong>1 ghante</strong> mein reply karenge.<br>Ya seedha WhatsApp: <strong>+92 306 169 8677</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-wrap">
+  <h2>Ready to Grow Your Business? 🌿</h2>
+  <p>Talk to a digital marketing expert right now — absolutely free!</p>
+  <a href="https://wa.me/923061698677?text=Hi%2C%20I%20want%20to%20grow%20my%20business%20digitally!" target="_blank" class="wa-big">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#22a84a"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Chat on WhatsApp — Free!
+  </a>
+  <div class="contact-chips">
+    <div class="chip">📞 +92 306 169 8677</div>
+    <div class="chip">✉️ aslsmazeme677@gmail.com</div>
+    <div class="chip">🕐 9am – 10pm PKT</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">DigiBoost <span>Pakistan</span></div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#blog">Blog</a>
+      <a href="#tips">Tips</a>
+      <a href="mailto:aslsmazeme677@gmail.com">Email</a>
+      <a href="https://wa.me/923061698677" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2025 DigiBoost Pakistan · Made with ❤️ for Pakistani Entrepreneurs</div>
+</footer>
+
+<!-- FLOAT WA -->
+<a href="https://wa.me/923061698677" target="_blank" class="wa-float">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function sendMsg(){
+  const n=document.getElementById('fn').value.trim();
+  const e=document.getElementById('fe').value.trim();
+  const m=document.getElementById('fm').value.trim();
+  if(!n||!e||!m){alert('Please fill Name, Email and Message!');return;}
+  const p=document.getElementById('fp').value.trim();
+  const s=document.getElementById('fs').value;
+  const sub=encodeURIComponent('New Inquiry — DigiBoost Pakistan — '+n);
+  const bod=encodeURIComponent('Name: '+n+'\nEmail: '+e+'\nPhone: '+(p||'N/A')+'\nService: '+(s||'N/A')+'\n\nMessage:\n'+m);
+  window.location.href='mailto:aslsmazeme677@gmail.com?subject='+sub+'&body='+bod;
+  document.getElementById('cForm').style.display='none';
+  document.getElementById('fOk').style.display='block';
+}
+</script>
+</body>
+</html>
